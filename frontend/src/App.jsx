@@ -508,7 +508,7 @@ export default function App() {
       const { token } = await res.json();
       const _client = new StreamVideoClient({ apiKey: STREAM_API_KEY, user: { id: userId, name: userName }, token });
       const _call = _client.call("default", CALL_ID);
-      await _call.join({ create: false });
+      await _call.join({ create: true });
       clientRef.current = _client;
       setClient(_client);
       setCall(_call);
