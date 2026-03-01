@@ -504,7 +504,7 @@ export default function App() {
     setPhase("joining");
     try {
       const userId = userName.toLowerCase().replace(/\s+/g, "-");
-      const res = await fetch(`http://localhost:8000/token?user_id=${userId}`);
+      const res = await fetch(`/api/token?user_id=${userId}`);
       const { token } = await res.json();
       const _client = new StreamVideoClient({ apiKey: STREAM_API_KEY, user: { id: userId, name: userName }, token });
       const _call = _client.call("default", CALL_ID);
